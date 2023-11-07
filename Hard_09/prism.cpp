@@ -42,6 +42,30 @@ Prism::~Prism()
 
 //------------------------- церрепш
 
+int Prism::getNun_of_edge()
+{
+	return(num_of_edge);
+}
+
+double Prism::getHeight()
+{
+	return(height);
+}
+
+double Prism::getLong_of_side()
+{
+	return(long_of_side);
+}
+
+double Prism::getArea()
+{
+	return(area);
+}
+
+double Prism::getVolume()
+{
+	return(volume);
+}
 
 //------------------------- яеррепш
 
