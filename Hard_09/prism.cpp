@@ -15,7 +15,7 @@ Prism::Prism()
 
 //------------------------- КОНСТРУКТОР С ПАРАМЕТРАМИ
 
-Prism::Prism(int n, double a, double h) : num_of_edge(n), long_of_side(a), height(h)
+Prism::Prism(float n, double a, double h) : num_of_edge(n), long_of_side(a), height(h)
 {
 	area = (num_of_edge * long_of_side * long_of_side) / (4 * tan((180 / num_of_edge) * PI / 180));
 	volume = area * height;
@@ -42,7 +42,7 @@ Prism::~Prism()
 
 //------------------------- ГЕТТЕРЫ
 
-int Prism::getNun_of_edge()
+int Prism::getNum_of_edge()
 {
 	return(num_of_edge);
 }
@@ -68,4 +68,40 @@ double Prism::getVolume()
 }
 
 //------------------------- СЕТТЕРЫ
+
+void Prism::setNum_of_edge(float n)
+{
+	this->num_of_edge = n;
+	area = (num_of_edge * long_of_side * long_of_side) / (4 * tan((180 / num_of_edge) * PI / 180));
+	volume = area * height;
+}
+
+void Prism::setHeight(double h)
+{
+	this->height = h;
+	volume = area * height;
+}
+
+void Prism::setLong_of_side(double a)
+{
+	this->long_of_side = a;
+	area = (num_of_edge * long_of_side * long_of_side) / (4 * tan((180 / num_of_edge) * PI / 180));
+	volume = area * height;
+}
+
+void Prism::setArea(double s)
+{
+	this->area = s;
+	volume = area * height;
+	// число граней оставляем неизменным , меняем длины сторон под новую площадь
+	long_of_side = sqrt((s * (4 * tan((180 / num_of_edge) * PI / 180))) / num_of_edge);
+}
+	
+	//------------------------- ПРОЧИЕ МЕТОДЫ
+
+void Prism::output()
+{
+	cout << endl << "Число сторон: " << num_of_edge << endl << "Длинна сторон: " << long_of_side
+		<< endl << "Высота: " << height << endl << "Площадь основания: " << area << endl << "Объём: " << volume << endl;
+}
 
